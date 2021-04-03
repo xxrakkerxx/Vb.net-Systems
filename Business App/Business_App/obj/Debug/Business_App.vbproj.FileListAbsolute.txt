@@ -1,0 +1,17 @@
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\bin\Debug\Business_App.exe.config
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\bin\Debug\business_record.mdb
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\bin\Debug\Business_App.exe
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\bin\Debug\Business_App.pdb
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\bin\Debug\Business_App.xml
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.vbprojResolveAssemblyReference.cache
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.Form1.resources
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.Resources.resources
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.vbproj.GenerateResource.Cache
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.exe
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.xml
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.pdb
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.frm_view.resources
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.frm_lending.resources
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.frm_lendingAdd.resources
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.frm_rice.resources
+C:\Users\Xbee\Documents\Visual Studio 2015\Projects\Tutorial\My Business System\Business_App\Business_App\obj\Debug\Business_App.frm_riceAdd.resources
