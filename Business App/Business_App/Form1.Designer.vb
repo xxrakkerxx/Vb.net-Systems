@@ -27,17 +27,23 @@ Partial Class Form1
         Dim PurchaserLabel As System.Windows.Forms.Label
         Dim QTYLabel As System.Windows.Forms.Label
         Dim AmountLabel As System.Windows.Forms.Label
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.RemarksLabel = New System.Windows.Forms.Label()
         Me.Business_recordDataSet = New Business_App.business_recordDataSet()
         Me.Tb_chickensBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tb_chickensTableAdapter = New Business_App.business_recordDataSetTableAdapters.tb_chickensTableAdapter()
         Me.TableAdapterManager = New Business_App.business_recordDataSetTableAdapters.TableAdapterManager()
         Me.Tb_chickensDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -101,12 +107,9 @@ Partial Class Form1
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.HowToToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rbtPaid = New System.Windows.Forms.RadioButton()
+        Me.rbtUnPaid = New System.Windows.Forms.RadioButton()
+        Me.lblTotal = New System.Windows.Forms.Label()
         IDLabel = New System.Windows.Forms.Label()
         PurchaserLabel = New System.Windows.Forms.Label()
         QTYLabel = New System.Windows.Forms.Label()
@@ -204,15 +207,75 @@ Partial Class Form1
         Me.Tb_chickensDataGridView.ContextMenuStrip = Me.ContextMenuStrip1
         Me.Tb_chickensDataGridView.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Tb_chickensDataGridView.DataSource = Me.Tb_chickensBindingSource
-        Me.Tb_chickensDataGridView.Location = New System.Drawing.Point(19, 385)
+        Me.Tb_chickensDataGridView.Location = New System.Drawing.Point(0, 396)
         Me.Tb_chickensDataGridView.Name = "Tb_chickensDataGridView"
         Me.Tb_chickensDataGridView.ReadOnly = True
         Me.Tb_chickensDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.Tb_chickensDataGridView.RowHeadersVisible = False
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Tai Le", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tb_chickensDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.Tb_chickensDataGridView.Size = New System.Drawing.Size(753, 241)
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Tai Le", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tb_chickensDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle11
+        Me.Tb_chickensDataGridView.Size = New System.Drawing.Size(805, 261)
         Me.Tb_chickensDataGridView.TabIndex = 10
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Purchaser"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Name"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.ToolTipText = "Name of Purchaser"
+        Me.DataGridViewTextBoxColumn2.Width = 91
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "QTY"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "QTY"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 80
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Amount"
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Maroon
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Yellow
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Amount"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 107
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Date_Purchase"
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Chartreuse
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Date_Purchase"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 175
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Remarks"
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle10
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Remarks"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         '
         'ContextMenuStrip1
         '
@@ -389,7 +452,10 @@ Partial Class Form1
         '
         Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.GroupBox1.Controls.Add(Me.lblTotal)
         Me.GroupBox1.Controls.Add(Me.btnPaid)
+        Me.GroupBox1.Controls.Add(Me.rbtUnPaid)
+        Me.GroupBox1.Controls.Add(Me.rbtPaid)
         Me.GroupBox1.Controls.Add(Me.btnUnpaid)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Controls.Add(Me.lblPaid)
@@ -414,9 +480,9 @@ Partial Class Form1
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Yi Baiti", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 39)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 39)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(805, 643)
+        Me.GroupBox1.Size = New System.Drawing.Size(805, 696)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.UseCompatibleTextRendering = True
@@ -532,7 +598,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.AnalyticsToolStripMenuItem, Me.DatabaseToolStripMenuItem, Me.AboutToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(843, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(833, 24)
         Me.MenuStrip1.TabIndex = 15
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -746,72 +812,49 @@ Partial Class Form1
         Me.HowToToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.HowToToolStripMenuItem.Text = "Help Dictionary"
         '
-        'DataGridViewTextBoxColumn1
+        'rbtPaid
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.rbtPaid.AutoSize = True
+        Me.rbtPaid.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.rbtPaid.Font = New System.Drawing.Font("Microsoft Tai Le", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtPaid.Location = New System.Drawing.Point(13, 663)
+        Me.rbtPaid.Name = "rbtPaid"
+        Me.rbtPaid.Size = New System.Drawing.Size(65, 27)
+        Me.rbtPaid.TabIndex = 53
+        Me.rbtPaid.TabStop = True
+        Me.rbtPaid.Text = "Paid"
+        Me.rbtPaid.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn2
+        'rbtUnPaid
         '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Purchaser"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Name"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.ToolTipText = "Name of Purchaser"
-        Me.DataGridViewTextBoxColumn2.Width = 91
+        Me.rbtUnPaid.AutoSize = True
+        Me.rbtUnPaid.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.rbtUnPaid.Font = New System.Drawing.Font("Microsoft Tai Le", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtUnPaid.Location = New System.Drawing.Point(86, 663)
+        Me.rbtUnPaid.Name = "rbtUnPaid"
+        Me.rbtUnPaid.Size = New System.Drawing.Size(89, 27)
+        Me.rbtUnPaid.TabIndex = 53
+        Me.rbtUnPaid.TabStop = True
+        Me.rbtUnPaid.Text = "UnPaid"
+        Me.rbtUnPaid.UseVisualStyleBackColor = True
         '
-        'DataGridViewTextBoxColumn3
+        'lblTotal
         '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "QTY"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "QTY"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 80
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Amount"
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Maroon
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Yellow
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Amount"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 107
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Date_Purchase"
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Chartreuse
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Date_Purchase"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 175
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Remarks"
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Remarks"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Tai Le", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Location = New System.Drawing.Point(195, 665)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(20, 23)
+        Me.lblTotal.TabIndex = 54
+        Me.lblTotal.Text = "0"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(843, 702)
+        Me.ClientSize = New System.Drawing.Size(833, 743)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -907,4 +950,7 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents rbtPaid As RadioButton
+    Friend WithEvents rbtUnPaid As RadioButton
+    Friend WithEvents lblTotal As Label
 End Class

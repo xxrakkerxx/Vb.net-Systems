@@ -80,6 +80,10 @@
         Catch ex As Exception
             'wag lagyan ng msgbox once na may exception, panigurado sabog ang low end pc 
         End Try
+        'count displayed record
+        Dim count As String = Tb_riceBindingSource.Count
+        lblTotal.Text = "Total Record(s): " & count
+
     End Sub
 
     Private Sub btnSearch_MouseHover(sender As Object, e As EventArgs) Handles btnSearch.MouseHover
@@ -138,7 +142,9 @@
         Try
             If txtSearch.TextLength > 0 Then
                 Tb_riceBindingSource.Filter = "(Purchaser LIKE '" & txtSearch.Text & "%') OR(Status LIKE '" & txtSearch.Text & "%')"
-
+                'clear rbt
+                rbtPaid.Checked = False
+                rbtUnPaid.Checked = False
                 If Tb_riceBindingSource.Count = 0 Then
                     MessageBox.Show("Record not found", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
@@ -175,5 +181,17 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Something wen't wrong", MessageBoxButtons.OK, MessageBoxIcon.Hand)
         End Try
+    End Sub
+
+    Private Sub rbtPaid_CheckedChanged(sender As Object, e As EventArgs) Handles rbtPaid.CheckedChanged
+        If rbtPaid.Checked Then
+            Tb_riceBindingSource.Filter = "(Status LIKE '" & "Paid" & "')"
+        End If
+    End Sub
+
+    Private Sub rbtUnPaid_CheckedChanged(sender As Object, e As EventArgs) Handles rbtUnPaid.CheckedChanged
+        If rbtUnPaid.Checked Then
+            Tb_riceBindingSource.Filter = "(Status LIKE '" & "UnPaid" & "')"
+        End If
     End Sub
 End Class

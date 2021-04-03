@@ -38,15 +38,30 @@ Partial Class frm_lending
         Dim StatusLabel As System.Windows.Forms.Label
         Dim Amount_PaidLabel As System.Windows.Forms.Label
         Dim Remaining_BalanceLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Tb_lendingDataGridView = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrowerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateStartDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week4DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week5DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week6DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week7DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Week8DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AmountPaidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RemainingBalanceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -78,21 +93,9 @@ Partial Class frm_lending
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Tb_lendingTableAdapter = New Business_App.business_recordDataSetTableAdapters.tb_lendingTableAdapter()
         Me.TableAdapterManager = New Business_App.business_recordDataSetTableAdapters.TableAdapterManager()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BorrowerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateStartDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week4DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week5DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week6DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week7DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Week8DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AmountPaidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RemainingBalanceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.rbtUnPaid = New System.Windows.Forms.RadioButton()
+        Me.rbtPaid = New System.Windows.Forms.RadioButton()
         IDLabel = New System.Windows.Forms.Label()
         Lender_NameLabel = New System.Windows.Forms.Label()
         Date_StartLabel = New System.Windows.Forms.Label()
@@ -261,6 +264,9 @@ Partial Class frm_lending
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.GroupBox1.Controls.Add(Me.lblTotal)
+        Me.GroupBox1.Controls.Add(Me.rbtUnPaid)
+        Me.GroupBox1.Controls.Add(Me.rbtPaid)
         Me.GroupBox1.Controls.Add(Me.btnSearch)
         Me.GroupBox1.Controls.Add(Me.txtSearch)
         Me.GroupBox1.Controls.Add(Me.Tb_lendingDataGridView)
@@ -308,27 +314,151 @@ Partial Class frm_lending
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Tb_lendingDataGridView.AutoGenerateColumns = False
         Me.Tb_lendingDataGridView.BackgroundColor = System.Drawing.Color.Azure
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Tai Le", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Tb_lendingDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Tai Le", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Tb_lendingDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.Tb_lendingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Tb_lendingDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.BorrowerNameDataGridViewTextBoxColumn, Me.DateStartDataGridViewTextBoxColumn, Me.AmountDataGridViewTextBoxColumn, Me.StatusDataGridViewTextBoxColumn, Me.Week1DataGridViewTextBoxColumn, Me.Week2DataGridViewTextBoxColumn, Me.Week3DataGridViewTextBoxColumn, Me.Week4DataGridViewTextBoxColumn, Me.Week5DataGridViewTextBoxColumn, Me.Week6DataGridViewTextBoxColumn, Me.Week7DataGridViewTextBoxColumn, Me.Week8DataGridViewTextBoxColumn, Me.AmountPaidDataGridViewTextBoxColumn, Me.RemainingBalanceDataGridViewTextBoxColumn})
         Me.Tb_lendingDataGridView.ContextMenuStrip = Me.ContextMenuStrip1
         Me.Tb_lendingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Tb_lendingDataGridView.DataSource = Me.Tb_lendingBindingSource
-        Me.Tb_lendingDataGridView.Location = New System.Drawing.Point(0, 569)
+        Me.Tb_lendingDataGridView.Location = New System.Drawing.Point(0, 577)
         Me.Tb_lendingDataGridView.Name = "Tb_lendingDataGridView"
         Me.Tb_lendingDataGridView.ReadOnly = True
         Me.Tb_lendingDataGridView.RowHeadersVisible = False
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Tai Le", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tb_lendingDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.Tb_lendingDataGridView.Size = New System.Drawing.Size(1219, 345)
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Tai Le", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tb_lendingDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle16
+        Me.Tb_lendingDataGridView.Size = New System.Drawing.Size(1219, 337)
         Me.Tb_lendingDataGridView.TabIndex = 18
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'BorrowerNameDataGridViewTextBoxColumn
+        '
+        Me.BorrowerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BorrowerNameDataGridViewTextBoxColumn.DataPropertyName = "Borrower_Name"
+        Me.BorrowerNameDataGridViewTextBoxColumn.HeaderText = "Borrower"
+        Me.BorrowerNameDataGridViewTextBoxColumn.Name = "BorrowerNameDataGridViewTextBoxColumn"
+        Me.BorrowerNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateStartDataGridViewTextBoxColumn
+        '
+        Me.DateStartDataGridViewTextBoxColumn.DataPropertyName = "Date_Start"
+        Me.DateStartDataGridViewTextBoxColumn.HeaderText = "Date_Start"
+        Me.DateStartDataGridViewTextBoxColumn.Name = "DateStartDataGridViewTextBoxColumn"
+        Me.DateStartDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DateStartDataGridViewTextBoxColumn.Width = 150
+        '
+        'AmountDataGridViewTextBoxColumn
+        '
+        Me.AmountDataGridViewTextBoxColumn.DataPropertyName = "Amount"
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.Maroon
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Yellow
+        Me.AmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
+        Me.AmountDataGridViewTextBoxColumn.HeaderText = "Amount"
+        Me.AmountDataGridViewTextBoxColumn.Name = "AmountDataGridViewTextBoxColumn"
+        Me.AmountDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StatusDataGridViewTextBoxColumn
+        '
+        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
+        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
+        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'Week1DataGridViewTextBoxColumn
+        '
+        Me.Week1DataGridViewTextBoxColumn.DataPropertyName = "Week_1"
+        Me.Week1DataGridViewTextBoxColumn.HeaderText = "W1"
+        Me.Week1DataGridViewTextBoxColumn.Name = "Week1DataGridViewTextBoxColumn"
+        Me.Week1DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week1DataGridViewTextBoxColumn.Width = 50
+        '
+        'Week2DataGridViewTextBoxColumn
+        '
+        Me.Week2DataGridViewTextBoxColumn.DataPropertyName = "Week_2"
+        Me.Week2DataGridViewTextBoxColumn.HeaderText = "W2"
+        Me.Week2DataGridViewTextBoxColumn.Name = "Week2DataGridViewTextBoxColumn"
+        Me.Week2DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week2DataGridViewTextBoxColumn.Width = 50
+        '
+        'Week3DataGridViewTextBoxColumn
+        '
+        Me.Week3DataGridViewTextBoxColumn.DataPropertyName = "Week_3"
+        Me.Week3DataGridViewTextBoxColumn.HeaderText = "W3"
+        Me.Week3DataGridViewTextBoxColumn.Name = "Week3DataGridViewTextBoxColumn"
+        Me.Week3DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week3DataGridViewTextBoxColumn.Width = 50
+        '
+        'Week4DataGridViewTextBoxColumn
+        '
+        Me.Week4DataGridViewTextBoxColumn.DataPropertyName = "Week_4"
+        Me.Week4DataGridViewTextBoxColumn.HeaderText = "W4"
+        Me.Week4DataGridViewTextBoxColumn.Name = "Week4DataGridViewTextBoxColumn"
+        Me.Week4DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week4DataGridViewTextBoxColumn.Width = 50
+        '
+        'Week5DataGridViewTextBoxColumn
+        '
+        Me.Week5DataGridViewTextBoxColumn.DataPropertyName = "Week_5"
+        Me.Week5DataGridViewTextBoxColumn.HeaderText = "W5"
+        Me.Week5DataGridViewTextBoxColumn.Name = "Week5DataGridViewTextBoxColumn"
+        Me.Week5DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week5DataGridViewTextBoxColumn.Width = 50
+        '
+        'Week6DataGridViewTextBoxColumn
+        '
+        Me.Week6DataGridViewTextBoxColumn.DataPropertyName = "Week_6"
+        Me.Week6DataGridViewTextBoxColumn.HeaderText = "W6"
+        Me.Week6DataGridViewTextBoxColumn.Name = "Week6DataGridViewTextBoxColumn"
+        Me.Week6DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week6DataGridViewTextBoxColumn.Width = 50
+        '
+        'Week7DataGridViewTextBoxColumn
+        '
+        Me.Week7DataGridViewTextBoxColumn.DataPropertyName = "Week_7"
+        Me.Week7DataGridViewTextBoxColumn.HeaderText = "W7"
+        Me.Week7DataGridViewTextBoxColumn.Name = "Week7DataGridViewTextBoxColumn"
+        Me.Week7DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week7DataGridViewTextBoxColumn.Width = 50
+        '
+        'Week8DataGridViewTextBoxColumn
+        '
+        Me.Week8DataGridViewTextBoxColumn.DataPropertyName = "Week_8"
+        Me.Week8DataGridViewTextBoxColumn.HeaderText = "W8"
+        Me.Week8DataGridViewTextBoxColumn.Name = "Week8DataGridViewTextBoxColumn"
+        Me.Week8DataGridViewTextBoxColumn.ReadOnly = True
+        Me.Week8DataGridViewTextBoxColumn.Width = 50
+        '
+        'AmountPaidDataGridViewTextBoxColumn
+        '
+        Me.AmountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid"
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.Lime
+        Me.AmountPaidDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle14
+        Me.AmountPaidDataGridViewTextBoxColumn.HeaderText = "Paid"
+        Me.AmountPaidDataGridViewTextBoxColumn.Name = "AmountPaidDataGridViewTextBoxColumn"
+        Me.AmountPaidDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RemainingBalanceDataGridViewTextBoxColumn
+        '
+        Me.RemainingBalanceDataGridViewTextBoxColumn.DataPropertyName = "Remaining_Balance"
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.Maroon
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Yellow
+        Me.RemainingBalanceDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle15
+        Me.RemainingBalanceDataGridViewTextBoxColumn.HeaderText = "Balance"
+        Me.RemainingBalanceDataGridViewTextBoxColumn.Name = "RemainingBalanceDataGridViewTextBoxColumn"
+        Me.RemainingBalanceDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ContextMenuStrip1
         '
@@ -648,129 +778,42 @@ Partial Class frm_lending
         Me.TableAdapterManager.tb_riceTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Business_App.business_recordDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'IDDataGridViewTextBoxColumn
+        'lblTotal
         '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Tai Le", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Location = New System.Drawing.Point(269, 546)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(20, 23)
+        Me.lblTotal.TabIndex = 57
+        Me.lblTotal.Text = "0"
         '
-        'BorrowerNameDataGridViewTextBoxColumn
+        'rbtUnPaid
         '
-        Me.BorrowerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BorrowerNameDataGridViewTextBoxColumn.DataPropertyName = "Borrower_Name"
-        Me.BorrowerNameDataGridViewTextBoxColumn.HeaderText = "Borrower"
-        Me.BorrowerNameDataGridViewTextBoxColumn.Name = "BorrowerNameDataGridViewTextBoxColumn"
-        Me.BorrowerNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.rbtUnPaid.AutoSize = True
+        Me.rbtUnPaid.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.rbtUnPaid.Font = New System.Drawing.Font("Microsoft Tai Le", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtUnPaid.Location = New System.Drawing.Point(160, 544)
+        Me.rbtUnPaid.Name = "rbtUnPaid"
+        Me.rbtUnPaid.Size = New System.Drawing.Size(108, 27)
+        Me.rbtUnPaid.TabIndex = 55
+        Me.rbtUnPaid.TabStop = True
+        Me.rbtUnPaid.Text = "Unsettled"
+        Me.rbtUnPaid.UseVisualStyleBackColor = True
         '
-        'DateStartDataGridViewTextBoxColumn
+        'rbtPaid
         '
-        Me.DateStartDataGridViewTextBoxColumn.DataPropertyName = "Date_Start"
-        Me.DateStartDataGridViewTextBoxColumn.HeaderText = "Date_Start"
-        Me.DateStartDataGridViewTextBoxColumn.Name = "DateStartDataGridViewTextBoxColumn"
-        Me.DateStartDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DateStartDataGridViewTextBoxColumn.Width = 150
-        '
-        'AmountDataGridViewTextBoxColumn
-        '
-        Me.AmountDataGridViewTextBoxColumn.DataPropertyName = "Amount"
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Maroon
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Yellow
-        Me.AmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
-        Me.AmountDataGridViewTextBoxColumn.HeaderText = "Amount"
-        Me.AmountDataGridViewTextBoxColumn.Name = "AmountDataGridViewTextBoxColumn"
-        Me.AmountDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StatusDataGridViewTextBoxColumn
-        '
-        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
-        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
-        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
-        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'Week1DataGridViewTextBoxColumn
-        '
-        Me.Week1DataGridViewTextBoxColumn.DataPropertyName = "Week_1"
-        Me.Week1DataGridViewTextBoxColumn.HeaderText = "W1"
-        Me.Week1DataGridViewTextBoxColumn.Name = "Week1DataGridViewTextBoxColumn"
-        Me.Week1DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week1DataGridViewTextBoxColumn.Width = 50
-        '
-        'Week2DataGridViewTextBoxColumn
-        '
-        Me.Week2DataGridViewTextBoxColumn.DataPropertyName = "Week_2"
-        Me.Week2DataGridViewTextBoxColumn.HeaderText = "W2"
-        Me.Week2DataGridViewTextBoxColumn.Name = "Week2DataGridViewTextBoxColumn"
-        Me.Week2DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week2DataGridViewTextBoxColumn.Width = 50
-        '
-        'Week3DataGridViewTextBoxColumn
-        '
-        Me.Week3DataGridViewTextBoxColumn.DataPropertyName = "Week_3"
-        Me.Week3DataGridViewTextBoxColumn.HeaderText = "W3"
-        Me.Week3DataGridViewTextBoxColumn.Name = "Week3DataGridViewTextBoxColumn"
-        Me.Week3DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week3DataGridViewTextBoxColumn.Width = 50
-        '
-        'Week4DataGridViewTextBoxColumn
-        '
-        Me.Week4DataGridViewTextBoxColumn.DataPropertyName = "Week_4"
-        Me.Week4DataGridViewTextBoxColumn.HeaderText = "W4"
-        Me.Week4DataGridViewTextBoxColumn.Name = "Week4DataGridViewTextBoxColumn"
-        Me.Week4DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week4DataGridViewTextBoxColumn.Width = 50
-        '
-        'Week5DataGridViewTextBoxColumn
-        '
-        Me.Week5DataGridViewTextBoxColumn.DataPropertyName = "Week_5"
-        Me.Week5DataGridViewTextBoxColumn.HeaderText = "W5"
-        Me.Week5DataGridViewTextBoxColumn.Name = "Week5DataGridViewTextBoxColumn"
-        Me.Week5DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week5DataGridViewTextBoxColumn.Width = 50
-        '
-        'Week6DataGridViewTextBoxColumn
-        '
-        Me.Week6DataGridViewTextBoxColumn.DataPropertyName = "Week_6"
-        Me.Week6DataGridViewTextBoxColumn.HeaderText = "W6"
-        Me.Week6DataGridViewTextBoxColumn.Name = "Week6DataGridViewTextBoxColumn"
-        Me.Week6DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week6DataGridViewTextBoxColumn.Width = 50
-        '
-        'Week7DataGridViewTextBoxColumn
-        '
-        Me.Week7DataGridViewTextBoxColumn.DataPropertyName = "Week_7"
-        Me.Week7DataGridViewTextBoxColumn.HeaderText = "W7"
-        Me.Week7DataGridViewTextBoxColumn.Name = "Week7DataGridViewTextBoxColumn"
-        Me.Week7DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week7DataGridViewTextBoxColumn.Width = 50
-        '
-        'Week8DataGridViewTextBoxColumn
-        '
-        Me.Week8DataGridViewTextBoxColumn.DataPropertyName = "Week_8"
-        Me.Week8DataGridViewTextBoxColumn.HeaderText = "W8"
-        Me.Week8DataGridViewTextBoxColumn.Name = "Week8DataGridViewTextBoxColumn"
-        Me.Week8DataGridViewTextBoxColumn.ReadOnly = True
-        Me.Week8DataGridViewTextBoxColumn.Width = 50
-        '
-        'AmountPaidDataGridViewTextBoxColumn
-        '
-        Me.AmountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid"
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Lime
-        Me.AmountPaidDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
-        Me.AmountPaidDataGridViewTextBoxColumn.HeaderText = "Paid"
-        Me.AmountPaidDataGridViewTextBoxColumn.Name = "AmountPaidDataGridViewTextBoxColumn"
-        Me.AmountPaidDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RemainingBalanceDataGridViewTextBoxColumn
-        '
-        Me.RemainingBalanceDataGridViewTextBoxColumn.DataPropertyName = "Remaining_Balance"
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Maroon
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Yellow
-        Me.RemainingBalanceDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
-        Me.RemainingBalanceDataGridViewTextBoxColumn.HeaderText = "Balance"
-        Me.RemainingBalanceDataGridViewTextBoxColumn.Name = "RemainingBalanceDataGridViewTextBoxColumn"
-        Me.RemainingBalanceDataGridViewTextBoxColumn.ReadOnly = True
+        Me.rbtPaid.AutoSize = True
+        Me.rbtPaid.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.rbtPaid.Font = New System.Drawing.Font("Microsoft Tai Le", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtPaid.Location = New System.Drawing.Point(73, 544)
+        Me.rbtPaid.Name = "rbtPaid"
+        Me.rbtPaid.Size = New System.Drawing.Size(86, 27)
+        Me.rbtPaid.TabIndex = 56
+        Me.rbtPaid.TabStop = True
+        Me.rbtPaid.Text = "Settled"
+        Me.rbtPaid.UseVisualStyleBackColor = True
         '
         'frm_lending
         '
@@ -849,4 +892,7 @@ Partial Class frm_lending
     Friend WithEvents Week8DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AmountPaidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents RemainingBalanceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents lblTotal As Label
+    Friend WithEvents rbtUnPaid As RadioButton
+    Friend WithEvents rbtPaid As RadioButton
 End Class

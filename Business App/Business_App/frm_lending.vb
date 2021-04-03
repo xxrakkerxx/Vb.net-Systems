@@ -84,7 +84,9 @@ Public Class frm_lending
         Try
             If txtSearch.TextLength > 0 Then
                 Tb_lendingBindingSource.Filter = "(Borrower_Name LIKE '" & txtSearch.Text & "%') OR(Status LIKE '" & txtSearch.Text & "%')"
-
+                'clear rbt
+                rbtPaid.Checked = False
+                rbtUnPaid.Checked = False
                 If Tb_lendingBindingSource.Count = 0 Then
                     MessageBox.Show("Record not found", "Please try again", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
@@ -151,6 +153,10 @@ Public Class frm_lending
         Catch ex As Exception
             'wag lagyan ng msgbox once na may exception, panigurado sabog ang low end pc 
         End Try
+
+        'count displayed records
+        Dim count As String = Tb_lendingBindingSource.Count
+        lblTotal.Text = "Total Record(s): " & count
     End Sub
 
     Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
@@ -206,6 +212,18 @@ Public Class frm_lending
         If e.KeyCode = Keys.Escape Then
             btnSearch_Click(sender, e)
             e.SuppressKeyPress = True
+        End If
+    End Sub
+
+    Private Sub rbtPaid_CheckedChanged(sender As Object, e As EventArgs) Handles rbtPaid.CheckedChanged
+        If rbtPaid.Checked Then
+            Tb_lendingBindingSource.Filter = "(Status LIKE '" & "Settled" & "')"
+        End If
+    End Sub
+
+    Private Sub rbtUnPaid_CheckedChanged(sender As Object, e As EventArgs) Handles rbtUnPaid.CheckedChanged
+        If rbtUnPaid.Checked Then
+            Tb_lendingBindingSource.Filter = "(Status LIKE '" & "UnSettled" & "')"
         End If
     End Sub
 End Class

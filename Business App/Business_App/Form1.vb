@@ -186,6 +186,10 @@ Public Class Form1
             RemarksTextBox.BackColor = SystemColors.Control
             RemarksTextBox.ForeColor = Color.Black
         End If
+        'count records been displayed
+        Dim count As String = Tb_chickensBindingSource.Count
+        lblTotal.Text = "Total Record(s): " & count
+
 
     End Sub
 
@@ -193,7 +197,9 @@ Public Class Form1
 
         If txtsearch.Text.Length > 0 Then
             Tb_chickensBindingSource.Filter = "(Remarks LIKE'" & txtsearch.Text & "%') OR(Purchaser LIKE '%" & txtsearch.Text & "%')"
-
+            'clear radiobutton
+            rbtPaid.Checked = False
+            rbtUnPaid.Checked = False
             If Tb_chickensBindingSource.Count = 0 Then
                 MessageBox.Show("Sorry No Data Found from your keyword", "Searching Failed")
                 Exit Sub
@@ -345,5 +351,18 @@ Public Class Form1
     Private Sub LendingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LendingToolStripMenuItem.Click
         frm_rice.Show()
 
+    End Sub
+
+    Private Sub rbtPaid_CheckedChanged(sender As Object, e As EventArgs) Handles rbtPaid.CheckedChanged
+        If rbtPaid.Checked Then
+            Tb_chickensBindingSource.Filter = "(Remarks LIKE '" & "Paid" & "')"
+
+        End If
+    End Sub
+
+    Private Sub rbtUnPaid_CheckedChanged(sender As Object, e As EventArgs) Handles rbtUnPaid.CheckedChanged
+        If rbtUnPaid.Checked Then
+            Tb_chickensBindingSource.Filter = "(Remarks LIKE '" & "UnPaid" & "')"
+        End If
     End Sub
 End Class
